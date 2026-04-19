@@ -1,0 +1,8 @@
+node_modules
+dist
+.env
+uploads/submissions/*
+uploads/publications/*
+!uploads/submissions/.gitkeep
+!uploads/publications/.gitkeep
+.DS_Store

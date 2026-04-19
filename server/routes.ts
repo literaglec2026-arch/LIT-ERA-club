@@ -67,6 +67,11 @@ export async function registerRoutes(
     next();
   });
 
+  // Health check route for Railway deployment
+  app.get("/api/health", (_req, res) => {
+    res.status(200).json({ status: "ok", message: "App is running" });
+  });
+
   // Auth - me
   app.get(api.auth.me.path, async (req, res, next) => {
     try {

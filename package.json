@@ -50,6 +50,7 @@
     "drizzle-zod": "^0.5.1",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
+    "framer-motion": "^11.18.2",
     "lucide-react": "^0.323.0",
     "memorystore": "^1.6.7",
     "multer": "^1.4.5-lts.1",

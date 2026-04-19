@@ -18,6 +18,7 @@ process.on("uncaughtException", (error) => {
 
 process.on("unhandledRejection", (reason, promise) => {
   console.error("Unhandled Rejection at:", promise, "reason:", reason);
+  process.exit(1);
 });
 
 import cors from "cors";
@@ -101,7 +102,8 @@ app.use((req, res, next) => {
 });
 
 (async () => {
-  // 1. Register all API routes first
+  try {
+    // 1. Register all API routes first
   await registerRoutes(httpServer, app);
 
   // 2. Setup static serving or Vite dev server
@@ -181,4 +183,8 @@ app.use((req, res, next) => {
       log(`Server running on port ${PORT}`);
     },
   );
+  } catch (error) {
+    console.error("Fatal error during server startup:", error);
+    process.exit(1);
+  }
 })();
